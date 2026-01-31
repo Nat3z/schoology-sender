@@ -2,7 +2,7 @@ async function getCookies() {
   const cookies = await chrome.cookies.getAll({"domain": ".schoology.com"});
   return cookies
     .filter(cookie => cookie.name.startsWith('SESS'))
-    .map(cookie => ({ name: cookie.name, value: cookie.value }));
+    .map(cookie => `${cookie.name}=${cookie.value}`);
 }
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {

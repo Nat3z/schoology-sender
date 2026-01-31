@@ -57,10 +57,7 @@ Bun.serve({
           const body = yield* Effect.tryPromise({
             try: async () => {
               const schema = z.object({
-                cookies: z.array(z.object({
-                  name: z.string(),
-                  value: z.string()
-                })),
+                cookies: z.array(z.string()),
                 serverToken: z.string()
               });
               return schema.safeParse(await request.json());
@@ -87,7 +84,7 @@ Bun.serve({
           }
 
           const timestamp = new Date().toISOString();
-          const cookieLines = cookies.map(c => `${c.name}=${c.value}`).join('\n');
+          const cookieLines = cookies.join('\n');
           const entry = `--- ${timestamp} ---\n${cookieLines}\n\n`;
 
           appendFileSync('cfg/schoology-cookies.txt', entry);
