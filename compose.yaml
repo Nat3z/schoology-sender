@@ -1,0 +1,21 @@
+services:
+  schoology-cookie-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: schoology-cookie
+    container_name: schoology-cookie-app
+    env_file:
+      - .env
+    environment:
+      - CMD=server
+    volumes:
+      - schoology-cookie-data:/app/cfg
+    ports:
+      - 3000:3000
+    network_mode: bridge
+    stdin_open: true
+    tty: true
+
+volumes:
+  schoology-cookie-data:

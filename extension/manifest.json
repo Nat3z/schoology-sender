@@ -1,0 +1,19 @@
+{
+  "name": "Schoology Cookie Capture",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": [
+    "cookies",
+    "storage",
+    "tabs"
+  ],
+  "action": {
+    "default_popup": "web/index.html"
+  },
+  "host_permissions": [
+    "https://*.schoology.com/*"
+  ],
+  "background": {
+    "service_worker": "main.js"
+  }
+}

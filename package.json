@@ -1,0 +1,20 @@
+{
+  "name": "schoology-cookie-capture",
+  "version": "1.0.0",
+  "module": "route.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "effect": "^3.17.9",
+    "zod": "^4.1.4"
+  },
+  "scripts": {
+    "docker:build": "docker compose build"
+  }
+}
